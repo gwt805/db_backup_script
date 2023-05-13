@@ -1,6 +1,16 @@
 #!/bin/bash
+
+pid=$$
 str=$"\n"
-cd /home/weitao/db_backup_script
-nohup /home/weitao/anaconda3/bin/python main.py > /home/weitao/db_backup_script/db_backup_script.log 2>&1 &
+
+cd /home/$USER/db_backup_script
+
+echo $pid > ./db_backup_auto_start_pid.txt
+
+nohup /home/$USER/anaconda3/bin/python main.py > ./db_backup_script.log 2>&1 &
+
 sstr=$(echo -e $str)
 echo $sstr
+echo $pid
+pidc=$!
+echo $pidc >> ./db_backup_auto_start_pid.txt

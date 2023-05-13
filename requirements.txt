@@ -2,3 +2,5 @@
 aligo
 loguru
 wxpusher
+requests
+dingtalkchatbot
