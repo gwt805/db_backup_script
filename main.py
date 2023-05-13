@@ -111,6 +111,8 @@ def upload_sql_file(base_path):
 
 def export_sql(now):
     sql_file_save_path = config.SQL_BACKUP_LOCAL_PATH
+    if not os.path.exists(sql_file_save_path):
+        os.makedirs(sql_file_save_path)
     
     db_export_config ={
         "myess_back": {"server": "", "user": "", "password": "", "port": 3306, "db": "" },
